@@ -1,6 +1,6 @@
 # Google Software Product Sprint
 
-This is an example change done in Stacked PR #1:
+This is an example change done in Stacked PR #2:
 - Hello 
 - World
 - !!!
