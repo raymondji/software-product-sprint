@@ -1,0 +1,149 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #2B2D42;
+}
+textarea { 
+    border: none; 
+    background-color: transparent; 
+    resize: none; 
+    outline: none; 
+}
+/* COLOR PALLETTE:
+Black: 000000
+White: FFFFFF
+Yellow: F8F32B
+Gray: 8D99AE
+Dark blue: 2B2D42
+*/
+
+.container{
+    position: relative;
+    top: 10px;
+}
+.header-container{
+    margin: 2px;
+    width: 100%;
+    padding: 10px;
+    margin:auto;
+    color: #EFEBD8;
+}
+.title{
+    font-size: 40px;
+    font-family: Helvetica;
+}
+.description{
+    font-size: 12px;
+    font-family: Helvetica;
+}
+
+.output-container{
+    border: 2px solid green;
+}
+
+.input-form{
+    margin-top: 10px;
+    justify-content: space-evenly;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+    text-align:center;
+    text-shadow:0px 1px 0px #ffffff;
+    width: 50%;
+    left: 25%;
+    top: 5%;
+    position: relative;
+    margin-bottom: 10px;
+}
+.input-title{
+    font-size:25px;
+    
+}
+.input-container{
+    font-size:20px;
+    margin: 5px;
+    text-align: initial;
+}
+
+.generic-input {
+    border: 1px solid grey;
+    margin: 8px 0;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 70%;
+    background-color: #FFFFFF;
+}
+
+.generic-input label{
+    text-align: left;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.generic-input{
+    margin:none;
+    font-size: 14px;
+    padding-left:10px;
+    padding-right: 10px;
+}
+
+.large-message{
+    font-size:20px;
+    margin: 5px;
+    text-align: initial;
+}
+.large-message textarea{
+    border: 1px solid grey;
+    margin: 8px 0;
+    border-radius: 8px;
+    margin-left: 5px;
+    padding-left:10px;
+    padding-right: 10px;
+    margin-right: auto;
+    height: 250px;
+    width: 95%;
+    background-color: #FFFFFF;
+}
+.type-check h4{
+    font-size:20px;
+    margin: 5px;
+    text-align: initial;
+}
+.options{
+    font-size:15px;
+    margin: 5px;
+    text-align: initial;
+    padding-left: 30px;
+}
+.options label, .options input{
+    margin-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.button{
+    border: 1px solid grey;
+    color: white;
+    font-weight: bold;
+    margin: 8px 0;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: auto;
+    padding-left:10px;
+    padding-right: 10px;
+    background-color:black;
+}
