@@ -6,6 +6,10 @@
 body{
     background-color: #2B2D42;
 }
+a{
+    color: black;
+    text-decoration: none;
+}
 /* COLOR PALLETTE:
 Black: 000000
 White: FFFFFF
@@ -34,7 +38,6 @@ Dark blue: 2B2D42
 
 
 .search-container{
-    
     top: 10vh;
     border: 1px solid grey;
     margin: 8px 0;
@@ -65,6 +68,23 @@ Dark blue: 2B2D42
     font-size: 14px;
     margin-top: 6px;
     
+}
+
+.search-container input{
+    padding-bottom: 5px;
+}
+
+.filter-element{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-indent: 20px;
+    border-color: #333;
+    border-width: 10px;
+}
+
+.filter-element:hover{
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
 }
 
 .topic-container{
