@@ -34,17 +34,11 @@ function createSearchItem(topicIndex, topicData){
     document.getElementById("search-container").appendChild(link)
 }
 
-
-async function main(){
-    const topicData = await loadTopics();
-    createSearchItem(0, topicData)
+function searchHandler(topicData){
+    console.log(topicData)
 }
-
-
-main()
-
-
-
-
-
-
+const topicData = loadTopics();
+createSearchItem(0, topicData)
+searchHandler
+//let event handler have reference to something that we update
+//register event handler after response comes back from the server
