@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html "lang"="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Page's Comments </title>
+    <link rel="stylesheet" href="input-form-style.css">
+    <script src=""></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1 class="title">Page Title</h1>
+            <p class="description">Subheading giving information about the page!</p>
+        </div>
+        <div class="output-container">
+            <h1>Still in work1</h1>
+        </div>
+
+        <div class="input-form">
+            <form id="comment" action="/new-comment" method="POST">
+                <h3 class="input-title">Send us a message :) </h3>
+                <div class="input-container">
+                    <label>Insert your name: </label>
+                    <input class="generic-input" placeholder="Don't leave me empty!" name="name-input">
+                </div>
+                <div class="input-container">
+                    <label>Insert your email:  </label>
+                    <input class="generic-input" placeholder="Don't leave me empty!" name="name-input">
+                </div>
+        
+
+                <div class="large-message">
+                    <h4>Insert your message here!</h4>
+                    <textarea placeholder="Don't leave me empty!" name="message-input"></textarea>
+                </div>
+
+                <div class="type-check">
+                    <h4>Select the type of message</h4>
+                    <div class="options">
+                    <input type="radio" id="type1" name="messageType" value="Comment">
+                    <label for="inlineCheckbox1">Comment</label>
+                    
+                    <input type="radio" id="type2" name="messageType" value="Question">
+                    <label for="inlineCheckbox2">Question</label>
+                
+                    <input type="radio" id="type3" name="messageType" value="Feedback">
+                    <label for="inlineCheckbox1">Feedback</label>                    
+                    </div>
+                </div>
+
+                <input class="button" type="submit" value="Submit" />
+
+            </form>
+        </div>
+    </div>
+</body>
+
+
+<footer>
+</footer>
+
+</html>
