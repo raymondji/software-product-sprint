@@ -26,6 +26,20 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>4.0.1</version>
     </dependency>
+    
+     <!--DataStore Library-->
+    <dependency>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>google-cloud-datastore</artifactId>
+        <version>1.104.0</version>
+    </dependency>
+
+    <!-- jsoup -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.8.3</version>
+    </dependency>
 
     <!-- Jetty -->
     <dependency>
@@ -33,6 +47,7 @@
       <artifactId>jetty-server</artifactId>
       <version>${jetty.version}</version>
     </dependency>
+    
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-annotations</artifactId>
