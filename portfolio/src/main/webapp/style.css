@@ -9,7 +9,11 @@
 .center {
   text-align: center;
   color: white;
-  font-size: 300%;
+  font-size: 200%;
+}
+
+.divFeedBack {
+    text-align: center;
 }
 
 .centerText {
@@ -24,14 +28,20 @@
 }
 
 body {
-  background: url(images/fondo_topic2.jpg);
-  background-size: 100%;
+    background-color: #2B2D42;
 }
 
-.buttonGoBack {
+.buttonGoBackRight {
   position: absolute;
   bottom: 8px;
   right: 16px;
+  font-size: 18px;
+}
+
+.buttonGoBackLeft {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
   font-size: 18px;
 }
 
