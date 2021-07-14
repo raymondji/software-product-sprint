@@ -22,7 +22,7 @@ body {
   background-size: 100%;
 }
 
-.bottomright {
+.buttonGoBack {
   position: absolute;
   bottom: 8px;
   right: 16px;
