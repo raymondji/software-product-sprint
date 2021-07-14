@@ -19,6 +19,11 @@ Dark blue: 2B2D42
 
 */
 
+
+.no-topics-text{
+    margin: auto;
+    color: white;
+}
 .content-container{
     position: relative;
     top:20vh;

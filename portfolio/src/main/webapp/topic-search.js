@@ -4,24 +4,13 @@ async function loadTopics(){
     const responseFromServer = await fetch('/get-topics');
     const topicData = await responseFromServer.json();
 
-    // const recommendedTopics = [0, 1, 2]
-    // setTopicData(recommendedTopics, 1, topicData);
-    // setTopicData(recommendedTopics, 2, topicData);
-    // setTopicData(recommendedTopics, 3, topicData);
     const event_handler = (argument) =>searchHandler(argument)
     document.getElementById("search-bar").addEventListener("input", (event) => event_handler(topicData))
+    searchHandler(topicData)
     return topicData
 }
 
-// function setTopicData(recommendedTopics, topicNum, topicData){
-//     var topicTitle = document.getElementById('topic-'+topicNum+'-title');
-//     var topicImg = document.getElementById('topic-'+topicNum+'-img');
-//     var topicDesc = document.getElementById('topic-'+topicNum+'-desc');
 
-//     topicTitle.innerHTML=topicData.topics[recommendedTopics[topicNum-1]].title
-//     topicDesc.innerHTML=topicData.topics[recommendedTopics[topicNum-1]].desc
-//     topicImg.src= 'images/'+topicData.topics[recommendedTopics[topicNum-1]].id+'.png'
-// }
 
 function createSearchItem(topicIndex, topicData){
     let link = document.createElement("a");
@@ -37,8 +26,15 @@ function createSearchItem(topicIndex, topicData){
     document.getElementById("search-container").appendChild(link)
 }
 
+function showNoResultsMessage(searchStr){
+    let message = document.createElement("h1");
+    message.innerHTML = "No results found for "+searchStr
+    message.classList.add("no-topics-text")
+    document.getElementById("topic-container").appendChild(message)
+    
+}
+
 function createTopicCard(topicNum, topicData){
-    console.log(topicNum)
     let card = document.createElement("div");
     var title = document.createElement("h2");
     var img = document.createElement("img");
@@ -71,9 +67,9 @@ function searchHandler(topicData){
     const searchStr = document.getElementById("search-bar").value
 
     var searchResults = getMatchingCardIndexes(topicData, searchStr)
-    searchResults.forEach(index => createTopicCard(index, topicData))
-
-    //console.log(searchResults)
+    console.log(searchResults)
+    if(searchResults.length == 0) showNoResultsMessage(searchStr)
+    else searchResults.forEach(index => createTopicCard(index, topicData))
 }
 
 function getMatchingCardIndexes(topicData, searchStr){
@@ -82,8 +78,6 @@ function getMatchingCardIndexes(topicData, searchStr){
     let titleIndex = 0;
     
     while(titleIndex < titleLen){
-        // console.log(titleIndex)
-        // console.log(topicData.topics[titleIndex])
         if(topicData.topics[titleIndex].title.indexOf(searchStr) != -1 || searchStr === ""){
             titles.push(titleIndex);
         }
@@ -101,4 +95,5 @@ function clearCards() {
 
 
 const topicData = loadTopics();
-//console.log(topicData)
+
+
