@@ -6,6 +6,14 @@
   margin: 10px;
 }
 
+:root {
+  --rick-black: #020402;
+  --chocolate-web: #D56F3E;
+  --celadon-blue: #2978A0;
+  --light-green: #8FE388;
+  --beau-blue: #C6E0FF;
+} 
+
 .center {
   text-align: center;
   color: white;
