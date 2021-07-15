@@ -29,7 +29,7 @@ public class NewCommentServlet extends HttpServlet {
         
         //Start the dataStore
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Message");
+        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Comment");
 
         if (!nameValue.isEmpty() && !emailValue.isEmpty() &&  !messageValue.isEmpty() ) {
             // Print the value so you can see it in the server logs.

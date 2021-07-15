@@ -34,18 +34,20 @@ public class LoadCommentServlet extends HttpServlet {
         String name;
         String email;
         String message;
+        Comment comment;
 
         //search topic
         while (results.hasNext()) {
             Entity pivot = results.next();
-            if( pivot.getString("topic") == searchTopic ){
+            if( pivot.getString("topic").equals(searchTopic) ){
+                
                 topic = pivot.getString("topic");
                 messageType = pivot.getString("messageType");
                 name = pivot.getString("name");
                 email = pivot.getString("email");
-                message  = pivot.getString("message");;
+                message  = pivot.getString("message");
 
-                Comment comment = new Comment(topic, messageType, name, email,message);
+                comment = new Comment(topic, messageType, name, email,message);
                 topicComments.add(comment);
                 break;
             }
@@ -53,19 +55,21 @@ public class LoadCommentServlet extends HttpServlet {
         
         while (results.hasNext()) {
             Entity entity = results.next();
-            
-            topic = entity.getString("topic");
-            messageType = entity.getString("messageType");
-            name = entity.getString("name");
-            email = entity.getString("email");
-            message  = entity.getString("message");;
+            if( entity.getString("topic").equals(searchTopic) ){
+                topic = entity.getString("topic");
+                messageType = entity.getString("messageType");
+                name = entity.getString("name");
+                email = entity.getString("email");
+                message  = entity.getString("message");;
 
-            Comment comment = new Comment(topic, messageType, name, email,message);
-            topicComments.add(comment);
-        }
+                comment = new Comment(topic, messageType, name, email,message);
+                topicComments.add(comment);
+            }
+            else break;
+        } 
 
         Gson gson = new Gson();
         response.setContentType("application/json;");
-        response.getWriter().println(gson.toJson(topicComments));
+        response.getWriter().println( gson.toJson(topicComments) );
     }
 }

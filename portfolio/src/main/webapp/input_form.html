@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <title>Page's Comments </title>
     <link rel="stylesheet" href="input-form-style.css">
-    <script src=""></script>
+    <script src="/scripts/CommentTableScript.js"></script>
 </head>
 
-<body>
+<body onload="loadTable()">
     <div class="container">
         <div class="header-container">
-            <h1 class="title">Page Title</h1>
-            <p class="description">Subheading giving information about the page!</p>
+            <img src="images/CSpediaicon2.png" alt="CSpedia logo" width="275px" height="137px">
+            <p class="description">Solutions for beginners computer scientists</p>
         </div>
         <div class="output-container">
-            <h1>Still in work1</h1>
+            <table id ='comment-Table' class="commentTable">
+            </table>
         </div>
 
         <div class="input-form">
@@ -26,7 +27,7 @@
                     <input class="generic-input" placeholder="Don't leave me empty!" name="name-input">
                 </div>
                 <div class="input-container">
-                    <label>Insert your email:  </label>
+                    <label>Insert your email: </label>
                     <input class="generic-input" placeholder="Don't leave me empty!" name="email-input">
                 </div>
 
@@ -38,14 +39,14 @@
                 <div class="type-check">
                     <h4>Select the type of message</h4>
                     <div class="options">
-                    <input type="radio" id="type1" name="messageType" value="Comment">
-                    <label for="inlineCheckbox1">Comment</label>
-                    
-                    <input type="radio" id="type2" name="messageType" value="Question">
-                    <label for="inlineCheckbox2">Question</label>
-                
-                    <input type="radio" id="type3" name="messageType" value="Feedback">
-                    <label for="inlineCheckbox1">Feedback</label>                    
+                        <input type="radio" id="type1" name="messageType" value="Comment">
+                        <label for="inlineCheckbox1">Comment</label>
+
+                        <input type="radio" id="type2" name="messageType" value="Question">
+                        <label for="inlineCheckbox2">Question</label>
+
+                        <input type="radio" id="type3" name="messageType" value="Feedback">
+                        <label for="inlineCheckbox1">Feedback</label>
                     </div>
                 </div>
 
