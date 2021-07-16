@@ -1,9 +1,23 @@
 
 
 async function loadTopics(){
-    const responseFromServer = await fetch('/get-topics');
-    const topicData = await responseFromServer.json();
+    //const responseFromServer = await fetch('/get-topics');
+    var url = 'https://storage.googleapis.com/jmorrison-sps-summer21.appspot.com/topic-list.json';
+    
+    //slip around CORS
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.setRequestHeader('Content-Type', 'text/plain');
+    xhr.send();
 
+    //Actually get the JSON
+    const userAction = async () => {
+        const response = await fetch(url);  
+        return await response.json();
+    }
+
+    const topicData =  await userAction()
+    console.log(topicData)
     const event_handler = (argument) =>searchHandler(argument)
     document.getElementById("search-bar").addEventListener("input", (event) => event_handler(topicData))
     searchHandler(topicData)
@@ -16,7 +30,7 @@ function createSearchItem(topicIndex, topicData){
     let link = document.createElement("a");
     let topicTitle = topicData.topics[topicIndex].title;
     let topicId = topicData.topics[topicIndex].id;
-    link.href = "/topics/"+topicId+".html"
+    link.href = "/topics/"+topicId+".html?topic="+topicId
 
     let element = document.createElement("div");
     element.className = "filter-element"
@@ -51,7 +65,8 @@ function createTopicCard(topicNum, topicData){
     img.src= 'images/'+topicData.topics[topicNum].id+'.png'
     img.alt = "topic "+topicNum+" image"
     button.innerHTML = "LEARN MORE"
-    
+    button.href = "/topics/"+topicData.topics[topicNum].id+".html"
+
     imgContainer.appendChild(img);
     card.appendChild(title);
     card.appendChild(imgContainer);
@@ -78,7 +93,7 @@ function getMatchingCardIndexes(topicData, searchStr){
     let titleIndex = 0;
     
     while(titleIndex < titleLen){
-        if(topicData.topics[titleIndex].title.indexOf(searchStr) != -1 || searchStr === ""){
+        if(topicData.topics[titleIndex].title.toUpperCase().indexOf(searchStr.toUpperCase()) != -1 || searchStr === ""){
             titles.push(titleIndex);
         }
         titleIndex++;

@@ -23,6 +23,11 @@
 			"id": "topic-5",
 			"title": "Topic 5 title",
 			"desc": "Topic 5 description"
+		},
+		{
+			"id": "css-flexbox",
+			"title": "CSS Flexbox",
+			"desc": "Make reactive, scalable web apps with this one simple element!"
 		}
 
 	]
