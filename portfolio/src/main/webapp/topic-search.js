@@ -1,7 +1,6 @@
 
 
 async function loadTopics(){
-    //const responseFromServer = await fetch('/get-topics');
     var url = 'https://storage.googleapis.com/jmorrison-sps-summer21.appspot.com/topic-list.json';
     
     //slip around CORS
@@ -11,41 +10,27 @@ async function loadTopics(){
     xhr.send();
 
     //Actually get the JSON
-    const userAction = async () => {
+    const getJSON = async () => {
         const response = await fetch(url);  
         return await response.json();
     }
 
-    const topicData =  await userAction()
-    console.log(topicData)
+    //set up the event handler with input
+    const topicData =  await getJSON()
     const event_handler = (argument) =>searchHandler(argument)
     document.getElementById("search-bar").addEventListener("input", (event) => event_handler(topicData))
+    
+    //do the initial loading
     searchHandler(topicData)
     return topicData
 }
 
 
-
-function createSearchItem(topicIndex, topicData){
-    let link = document.createElement("a");
-    let topicTitle = topicData.topics[topicIndex].title;
-    let topicId = topicData.topics[topicIndex].id;
-    link.href = "/topics/"+topicId+".html?topic="+topicId
-
-    let element = document.createElement("div");
-    element.className = "filter-element"
-    element.innerHTML = topicTitle
-
-    link.appendChild(element)
-    document.getElementById("search-container").appendChild(link)
-}
-
 function showNoResultsMessage(searchStr){
     let message = document.createElement("h1");
-    message.innerHTML = "No results found for "+searchStr
-    message.classList.add("no-topics-text")
-    document.getElementById("topic-container").appendChild(message)
-    
+    message.innerHTML = "No results found for '"+searchStr+"'";
+    message.classList.add("no-topics-text");
+    document.getElementById("topic-container").appendChild(message);
 }
 
 function createTopicCard(topicNum, topicData){
@@ -109,6 +94,6 @@ function clearCards() {
 }
 
 
-const topicData = loadTopics();
+loadTopics();
 
 
