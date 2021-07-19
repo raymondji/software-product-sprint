@@ -30,7 +30,6 @@ public class LoadCommentServlet extends HttpServlet {
 
         List<Comment> topicComments = new ArrayList<>();
         String topic;
-        String messageType;
         String name;
         String email;
         String message;
@@ -42,12 +41,11 @@ public class LoadCommentServlet extends HttpServlet {
             if( pivot.getString("topic").equals(searchTopic) ){
                 
                 topic = pivot.getString("topic");
-                messageType = pivot.getString("messageType");
                 name = pivot.getString("name");
                 email = pivot.getString("email");
                 message  = pivot.getString("message");
 
-                comment = new Comment(topic, messageType, name, email,message);
+                comment = new Comment(topic, name, email,message);
                 topicComments.add(comment);
                 break;
             }
@@ -57,12 +55,11 @@ public class LoadCommentServlet extends HttpServlet {
             Entity entity = results.next();
             if( entity.getString("topic").equals(searchTopic) ){
                 topic = entity.getString("topic");
-                messageType = entity.getString("messageType");
                 name = entity.getString("name");
                 email = entity.getString("email");
                 message  = entity.getString("message");;
 
-                comment = new Comment(topic, messageType, name, email,message);
+                comment = new Comment(topic, name, email,message);
                 topicComments.add(comment);
             }
             else break;
