@@ -8,7 +8,6 @@ import com.google.cloud.datastore.KeyFactory;
 import com.google.cloud.language.v1.Document;
 import com.google.cloud.language.v1.LanguageServiceClient;
 import com.google.cloud.language.v1.Sentiment;
-import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -58,8 +57,5 @@ public class NewCommentServlet extends HttpServlet {
                     .build();           
             datastore.put(messageEntity);
         }
-        Gson gson = new Gson();
-        response.setContentType("application/json;");
-        response.getWriter().println( gson.toJson(score) );
   }
 }
