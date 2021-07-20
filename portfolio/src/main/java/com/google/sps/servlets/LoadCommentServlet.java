@@ -15,15 +15,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 /** Servlet responsible for save new messages. */
 @WebServlet("/load-comment")
 public class LoadCommentServlet extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        String searchTopic = "cheers";
+        String searchTopic = Jsoup.clean(request.getParameter("topic"), Whitelist.none());
         Query<Entity> query = Query.newEntityQueryBuilder().setKind("Comment").setOrderBy(OrderBy.desc("topic"))
                 .build();
         QueryResults<Entity> results = datastore.run(query);
