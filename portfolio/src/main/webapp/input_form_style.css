@@ -13,6 +13,7 @@ textarea {
     resize: none; 
     outline: none; 
 }
+
 /* COLOR PALLETTE:
 Black: 000000
 White: FFFFFF
@@ -102,10 +103,15 @@ tr:nth-child(even) {
     text-align: initial;
     background-color:#ededed;
 }
-.subtitle{
-    font-size:20px;
+button {
+    background-color:#000000;
+    color:white;
+    border-radius: 9px;
+    width: 100px;
+    margin: 20px;
+}
+.submit-container{
     margin: 5px;
-    text-align: initial;
     margin: 8px 0;
     background-color:#ededed;
 }
