@@ -1,23 +1,9 @@
-document.getElementById('submitBtn').addEventListener("input", saveComment());
-
 async function saveComment(){
-        
-        const nameValue    = document.getElementsByName('name-input').values;
-        const emailValue   = document.getElementsByName('email-input').value;
-        const messageType = document.getElementsByName('messageType').value;
-        const messageValue = document.getElementsByName('message-input').value;
-        console.log(nameValue);
-        console.log(emailValue);
-        console.log(messageType);
-        console.log(messageValue);
-
         const params = new URLSearchParams();
-        console.log(params);
-        params.append('text', text);
-        params.append('name-input',nameValue);
-        params.append('email-input',emailValue);
-        params.append('messageType',messageType);
-        params.append('message-input',messageValue);
+        params.append('topic', getTopic());
+        params.append('name-input'   , document.getElementById('name-input').value);
+        params.append('email-input'  , document.getElementById('email-input').value);
+        params.append('message-input', document.getElementById('message-input').value);
 
         fetch('/new-comment', {
           method: 'POST',
@@ -27,8 +13,21 @@ async function saveComment(){
         });
 }
 
+function getTopic() {
+    URL = window.location.href;
+    const topic = URL.substring( URL.indexOf('=') + 1 );
+    return topic;
+}
+
 async function loadTable() {
-    const responseFromServer = await fetch('/load-comment');
+    const params = new URLSearchParams();
+        params.append('topic',getTopic());
+    const responseFromServer = await fetch('/load-comment', 
+    {
+        method: 'POST',
+        body: params
+    }
+    );
     const listComments = await responseFromServer.json();    
     const commentTable = document.getElementById('comment-Table');
     var comment;
@@ -51,9 +50,6 @@ function createTrElement(comment) {
         createTagElement('td', comment.topic)
     );
     trElement.appendChild(
-        createTagElement('td', comment.messageType)
-    );
-    trElement.appendChild(
         createTagElement('td', comment.name)
     );
     trElement.appendChild(
@@ -69,9 +65,6 @@ function createThElement() {
     trElement.innerHTML = '';
     trElement.appendChild(
         createTagElement('th', 'Topic')
-    );
-    trElement.appendChild(
-        createTagElement('th', 'Message Type')
     );
     trElement.appendChild(
         createTagElement('th', 'Name')

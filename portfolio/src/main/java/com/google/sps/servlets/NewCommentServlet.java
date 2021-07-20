@@ -8,6 +8,7 @@ import com.google.cloud.datastore.KeyFactory;
 import com.google.cloud.language.v1.Document;
 import com.google.cloud.language.v1.LanguageServiceClient;
 import com.google.cloud.language.v1.Sentiment;
+import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,12 +24,18 @@ public class NewCommentServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Sanitize user input to remove HTML tags and JavaScript.
-        System.out.println(request.getRequestURL());
+        
         System.out.println(request.getParameter("topics"));
-        String topicValue   = Jsoup.clean(request.getRequestURL().substring(request.getRequestURI().indexOf("=")+1), Whitelist.none());
+        String topicValue   = Jsoup.clean(request.getParameter("topic"), Whitelist.none());
         String nameValue    = Jsoup.clean(request.getParameter("name-input"), Whitelist.none());
         String emailValue   = Jsoup.clean(request.getParameter("email-input"), Whitelist.none());
         String messageValue = Jsoup.clean(request.getParameter("message-input"), Whitelist.none());
+            System.out.println("You submitted: ");
+            System.out.println("TOPIC: " + topicValue);
+            System.out.println("NAME: " + nameValue);
+            System.out.println("EMAIL: " + emailValue);
+            System.out.println("MESSAGE: " + messageValue);            
+            
 
         //Start the dataStore
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
@@ -42,15 +49,6 @@ public class NewCommentServlet extends HttpServlet {
         languageService.close();
 
         if ( score > -0.1 ) {
-            // Write the value to the response so the user can see it.
-            response.setContentType("text/html;");
-            response.getWriter().println("You submitted: ");
-            response.getWriter().println("TOPIC: " + topicValue);
-            response.getWriter().println("NAME: " + nameValue);
-            response.getWriter().println("EMAIL: " + emailValue);
-            response.getWriter().println("MESSAGE: " + messageValue);            
-            response.getWriter().println("Score: " + score);  
-            
           FullEntity messageEntity =
                 Entity.newBuilder(keyFactory.newKey())
                     .set("topic", topicValue)    
@@ -60,6 +58,8 @@ public class NewCommentServlet extends HttpServlet {
                     .build();           
             datastore.put(messageEntity);
         }
-        response.sendRedirect("/input_form.html?topic="+topicValue);
+        Gson gson = new Gson();
+        response.setContentType("application/json;");
+        response.getWriter().println( gson.toJson(score) );
   }
 }

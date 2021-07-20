@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Page's Comments </title>
-    <link rel="stylesheet" href="input-form-style.css">
-    <script src="input_form_script.js"></script>
+    <link rel="stylesheet" href="input_form_style.css">
+    <script src="scripts/input_form_script.js"></script>
 </head>
 
 <body onload="loadTable()">
     <div class="container">
         <div class="header-container">
 
-            <img src="cspedia_logo.png" alt="CSpedia logo" width="200px" height="100px">
+            <img src="images/cspedia_logo.png" alt="CSpedia logo" width="200px" height="100px">
             <p class="description">Solutions for beginners computer scientists</p>
 
         </div>
@@ -52,22 +52,10 @@
 
             <p class="warning" id="warning-2"
                 style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
-
-            <div class="type-check" style="background-color:#ededed;">
-                <h4 style="background-color:#ededed;">Select the type of message</h4>
-
-                <div class="options" style="background-color:#ededed;">
-                    <input type="radio" id="type1" name="messageType" value="Comment">
-                    <label for="inlineCheckbox1">Comment</label>
-
-                    <input style="background-color:#ededed;" type="radio" id="type2" name="messageType"
-                        value="Question">
-                    <label for="inlineCheckbox2">Question</label>
-                </div>
-
-            </div>
-
-            <button id="submitBtn" class="button">"Submit"</button>
+            <button id="submitBtn" onclick="saveComment()">Submit</button>
+            <div class="Submit-container">
+                
+            </div>>
         </div>
 
     </div>
