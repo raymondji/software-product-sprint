@@ -5,6 +5,9 @@ import com.google.cloud.datastore.DatastoreOptions;
 import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.KeyFactory;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,39 +23,34 @@ public class NewCommentServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Sanitize user input to remove HTML tags and JavaScript.
-        //String topicValue   = Jsoup.clean(request.getParameter("topic-input"), Whitelist.none());
-        String topicValue="cheers";
-        String messageTypeValue   = Jsoup.clean(request.getParameter("messageType"), Whitelist.none());
+        
+        System.out.println(request.getParameter("topics"));
+        String topicValue   = Jsoup.clean(request.getParameter("topic"), Whitelist.none());
         String nameValue    = Jsoup.clean(request.getParameter("name-input"), Whitelist.none());
         String emailValue   = Jsoup.clean(request.getParameter("email-input"), Whitelist.none());
         String messageValue = Jsoup.clean(request.getParameter("message-input"), Whitelist.none());
-        
+            System.out.println("You submitted: ");
+            System.out.println("TOPIC: " + topicValue);
+            System.out.println("NAME: " + nameValue);
+            System.out.println("EMAIL: " + emailValue);
+            System.out.println("MESSAGE: " + messageValue);            
+            
+
         //Start the dataStore
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Comment");
+        
+        Document doc =
+           Document.newBuilder().setContent(messageValue).setType(Document.Type.PLAIN_TEXT).build();
+        LanguageServiceClient languageService = LanguageServiceClient.create();
+        Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+        float score = sentiment.getScore();
+        languageService.close();
 
-        if (!nameValue.isEmpty() && !emailValue.isEmpty() &&  !messageValue.isEmpty() ) {
-            // Print the value so you can see it in the server logs.
-            System.out.println("You submitted: ");
-            System.out.println("TOPIC: " + topicValue);
-            System.out.println("MESSAGE TYPE: " + messageTypeValue);
-            System.out.println("NAME: " + nameValue);
-            System.out.println("EMAIL: " + emailValue);
-            System.out.println("MESSAGE: " + messageValue);
-
-            // Write the value to the response so the user can see it.
-            response.setContentType("text/html;");
-            response.getWriter().println("You submitted: ");
-            response.getWriter().println("TOPIC: " + topicValue);
-            response.getWriter().println("MESSAGE TYPE: " + messageTypeValue);
-            response.getWriter().println("NAME: " + nameValue);
-            response.getWriter().println("EMAIL: " + emailValue);
-            response.getWriter().println("MESSAGE: " + messageValue);            
-            
+        if ( score > -0.1 ) {
           FullEntity messageEntity =
                 Entity.newBuilder(keyFactory.newKey())
                     .set("topic", topicValue)    
-                    .set("messageType", messageTypeValue)
                     .set("name", nameValue)
                     .set("email", emailValue)
                     .set("message", messageValue)

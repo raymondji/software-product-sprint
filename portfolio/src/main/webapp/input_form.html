@@ -4,56 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Page's Comments </title>
-    <link rel="stylesheet" href="input-form-style.css">
-    <script src="/scripts/CommentTableScript.js"></script>
+    <link rel="shortcut icon" href="images/cspedia_icon.png" />
+    <link rel="stylesheet" href="input_form_style.css">
+    <script src="scripts/input_form_script.js"></script>
 </head>
 
 <body onload="loadTable()">
     <div class="container">
         <div class="header-container">
-            <img src="images/CSpediaicon2.png" alt="CSpedia logo" width="275px" height="137px">
+
+            <img src="images/cspedia_logo.png" alt="CSpedia logo" width="200px" height="100px">
             <p class="description">Solutions for beginners computer scientists</p>
+
         </div>
+
         <div class="output-container">
-            <table id ='comment-Table' class="commentTable">
+            <table id='comment-Table' class="commentTable">
             </table>
         </div>
 
         <div class="input-form">
-            <form id="comment" action="/new-comment" method="POST">
-                <h3 class="input-title">Send us a message :) </h3>
-                <div class="input-container">
-                    <label>Insert your name: </label>
-                    <input class="generic-input" placeholder="Don't leave me empty!" name="name-input">
-                </div>
-                <div class="input-container">
-                    <label>Insert your email: </label>
-                    <input class="generic-input" placeholder="Don't leave me empty!" name="email-input">
-                </div>
+            <h3 class="input-title">Send us a message :) </h3>
 
-                <div class="large-message">
-                    <h4>Insert your message here!</h4>
-                    <textarea placeholder="Don't leave me empty!" name="message-input"></textarea>
-                </div>
+            <div class="input-container">
+                <p style="background-color:#ededed;">Insert your name: </p>
+                <textarea class="generic-input" placeholder="Don't leave me empty!" id="name-input"
+                    onblur="checkNotEmpty(this)"></textarea>
 
-                <div class="type-check">
-                    <h4>Select the type of message</h4>
-                    <div class="options">
-                        <input type="radio" id="type1" name="messageType" value="Comment">
-                        <label for="inlineCheckbox1">Comment</label>
+            </div>
 
-                        <input type="radio" id="type2" name="messageType" value="Question">
-                        <label for="inlineCheckbox2">Question</label>
+            <p class="warning" id="warning"
+                style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
 
-                        <input type="radio" id="type3" name="messageType" value="Feedback">
-                        <label for="inlineCheckbox1">Feedback</label>
-                    </div>
-                </div>
+            <div class="input-container">
+                <p style="background-color:#ededed;">Insert your email: </p>
+                <textarea class="generic-input" placeholder="Don't leave me empty!" id="email-input"
+                    onblur="checkNotEmpty1(this)"></textarea>
+            </div>
 
-                <input class="button" type="submit" value="Submit" />
+            <p class="warning" id="warning-1"
+                style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
 
-            </form>
+            <div class="large-message">
+                <h4 style="background-color:#ededed;">Insert your message here!</h4>
+                <textarea placeholder="Don't leave me empty!" id="message-input"
+                    onblur="checkNotEmpty2(this)"></textarea>
+            </div>
+
+            <p class="warning" id="warning-2"
+                style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
+            
+            <button id="submitBtn" onclick="saveComment()">Submit</button>
+            <br>
+            <div id="submit-container">
+                
+            </div>
         </div>
+
     </div>
 </body>
 

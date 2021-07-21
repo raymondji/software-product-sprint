@@ -2,9 +2,10 @@
     margin:0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2978a0;
 }
 body{
-    background-color: #2B2D42;
+    background-color:  #C6E0FF;
 }
 textarea { 
     border: none; 
@@ -12,6 +13,7 @@ textarea {
     resize: none; 
     outline: none; 
 }
+
 /* COLOR PALLETTE:
 Black: 000000
 White: FFFFFF
@@ -30,15 +32,20 @@ Dark blue: 2B2D42
     padding: 10px;
     margin:auto;
     color: #EFEBD8;
+    background-color: #C6E0FF;
+    border-bottom: black 5px solid;
 }
 .title{
     font-size: 40px;
     font-family: Helvetica;
 }
 .description{
-    font-size: 12px;
-    font-family: Helvetica;
+    
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: bolder;
     color:#046FF4;
+    background-color: #C6E0FF;
 }
 
 .output-container{
@@ -88,30 +95,45 @@ tr:nth-child(even) {
 }
 .input-title{
     font-size:25px;
-    
+    background-color:#ededed;
 }
 .input-container{
     font-size:20px;
     margin: 5px;
     text-align: initial;
+    background-color:#ededed;
 }
-
+button {
+    background-color:#000000;
+    color:white;
+    border-radius: 9px;
+    width: 100px;
+    margin: 20px;
+}
+.submit-container{
+    margin: 5px;
+    margin: 8px 0;
+    background-color:#ededed;
+}
 .generic-input {
     border: 1px solid grey;
-    margin: 8px 0;
+    margin: 8px;
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
     height: 30px;
-    width: 70%;
+    width: 90%;
     background-color: #FFFFFF;
 }
 
-.generic-input label{
+
+.generic-input p{
+    margin: 8px;
     text-align: left;
     color: #333;
     text-transform: uppercase;
     font-size: 14px;
+    background-color:#ededed;
 }
 
 .generic-input{
@@ -125,6 +147,7 @@ tr:nth-child(even) {
     font-size:20px;
     margin: 5px;
     text-align: initial;
+    background-color:#ededed;
 }
 .large-message textarea{
     border: 1px solid grey;
@@ -150,6 +173,7 @@ tr:nth-child(even) {
     padding-left: 30px;
 }
 .options label, .options input{
+    background-color:#ededed;
     margin-left: 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
