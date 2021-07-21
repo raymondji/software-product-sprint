@@ -3,43 +3,25 @@
 <script src="topic-search.js" defer></script>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="colors.css">
     <link rel="stylesheet" href="home-styles.css">
-    <title>Page Name</title>
+    <title>CSpedia</title>
     
 </head>
 
 <body>
     <div class="content-container">
         <div class="header-container">
-            <h1 class="title">Page Title</h1>
-            <p class="description">Subheading giving information about the page!</p>
+            <h1 class="title">CSPedia</h1>
+            <p class="description">Learn more about the fields of computer science!</p>
         </div>
         
         <form method="POST" action="/form-handler">
             <div class="search-container" id="search-container">
-            <!--Maybe implement autofill?-->
             <input type="text" name="search-val" value="" id="search-bar" placeholder="Filter topics below...">
-               <!-- <a href="/"><div class="filter-element">Element 1</div></a>-->
             </div>
         </form>
         <div class="topic-container" id="topic-container">
-            <div class="topic-card">
-                <h2 id="topic-1-title"></h2>
-                <div class="topic-img-container" ><img src="" id="topic-1-img" alt="topic 1 image" ></div>
-                
-                <p id="topic-1-desc"></p>
-                <a class="topic-btn" href="">LEARN MORE</a>
-            </div>
-
-
-
-            <div class="topic-card">
-                <h2 id="topic-2-title"></h2>
-                <div class="topic-img-container"><img src="" id="topic-2-img" alt="topic 2 image" ></div>
-                
-                <p id="topic-2-desc"></p>
-                <a class="topic-btn" href="">LEARN MORE</a>
-            </div>
         </div>
     </div>
     

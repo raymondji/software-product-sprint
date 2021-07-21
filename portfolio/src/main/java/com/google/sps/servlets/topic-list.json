@@ -1,28 +1,30 @@
 {
-	"topics": [{
-			"id": "topic-1",
-			"title": "Topic 1 title",
-			"desc": "Topic 1 description"
+	"topics": [
+		{
+			"id": "css-flexbox",
+			"title": "CSS Flexbox",
+			"desc": "Make reactive, scalable web apps with this one simple element!"
 		},
 		{
-			"id": "topic-2",
-			"title": "Topic 2 title",
-			"desc": "Topic 2 description"
+			"id": "machine-learning",
+			"title": "Machine Learning",
+			"desc": "Instead of solving the problem yourself, create an AI that can solve the problem for you!"
 		},
 		{
-			"id": "topic-3",
-			"title": "Topic 3 title",
-			"desc": "Topic 3 description"
-		},
-		{
-			"id": "topic-4",
-			"title": "Topic 4 title",
-			"desc": "Topic 4 description"
-		},
-		{
-			"id": "topic-5",
-			"title": "Topic 5 title",
-			"desc": "Topic 5 description"
+			"id": "dev-ops",
+			"title": "DevOps/Automated Delivery",
+			"desc": "Automatically build, test, and deploy your code!"
+        },
+        {
+			"id": "ui-ux-design",
+			"title": "UI/UX Design",
+			"desc": "Maximise your product engagement by intentionally designing your user's exerience!"
+        },
+        {
+			"id": "cloud-tech",
+			"title": "Cloud Technology",
+            "desc": "Services like AWS and GCP allow for you to stan up servers and databases in a matter of minutes. Literally just download more ram!"
+            
 		}
 
 	]

@@ -5,6 +5,7 @@
 }
 body{
     background-color: #2B2D42;
+    
 }
 a{
     color: black;
@@ -16,9 +17,13 @@ White: FFFFFF
 Yellow: F8F32B
 Gray: 8D99AE
 Dark blue: 2B2D42
-
 */
 
+
+.no-topics-text{
+    margin: auto;
+    color: white;
+}
 .content-container{
     position: relative;
     top:20vh;
