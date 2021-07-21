@@ -16,7 +16,7 @@
 
     <!-- Project-specific properties -->
     <exec.mainClass>com.google.sps.ServerMain</exec.mainClass>
-    <googleCloudProjectId>summer21-sps-31</googleCloudProjectId>
+    <googleCloudProjectId>eortegavaldes-sps-summer21</googleCloudProjectId>
   </properties>
 
   <dependencies>
@@ -31,8 +31,16 @@
     <dependency>
         <groupId>com.google.cloud</groupId>
         <artifactId>google-cloud-datastore</artifactId>
-        <version>1.104.0</version>
+        <version>1.105.9</version>
     </dependency>
+
+    <!--Lenguae API Library-->
+    <dependency>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>google-cloud-language</artifactId>
+        <version>1.101.12</version>
+    </dependency>
+
 
     <!-- jsoup -->
     <dependency>
