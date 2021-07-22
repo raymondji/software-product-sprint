@@ -1,0 +1,109 @@
+.topic_card {
+  background-color:whitesmoke;
+  width: 1000px;
+  border: 10000px rgb(192, 255, 241);
+  padding: 20px;
+  margin: 10px;
+}
+
+:root {
+  --rick-black: #020402;
+  --chocolate-web: #D56F3E;
+  --celadon-blue: #2978A0;
+  --light-green: #8FE388;
+  --beau-blue: #C6E0FF;
+} 
+
+.output-container{
+    border: 2px solid green;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+  color: white;
+  font-size: 200%;
+}
+
+.divFeedBack {
+    text-align: center;
+}
+
+.centerText {
+    text-align: center;
+    color: white;
+    font: white;
+}
+
+.white {
+    color: white;
+    font-size: 200%
+}
+
+body {
+    background-color: #2B2D42;
+}
+
+.buttonGoBackRight {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+.buttonGoBackLeft {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 18px;
+}
+
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+    border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+    left: 90%;
+    top: 3%;
+    position: relative;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+
+.submit-container{
+    margin: 5px;
+    margin: 8px 0;
+    background-color:#ededed;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(odd) {
+  color:#FFFFFF;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+

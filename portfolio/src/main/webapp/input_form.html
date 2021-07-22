@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html "lang"="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Page's Comments </title>
+    <link rel="shortcut icon" href="images/cspedia_icon.png" />
+    <link rel="stylesheet" href="input_form_style.css">
+    <script src="scripts/input_form_script.js"></script>
+</head>
+
+<body onload="loadTable()">
+    <div class="container">
+        <div class="header-container">
+
+            <img src="images/cspedia_logo.png" alt="CSpedia logo" width="200px" height="100px">
+            <p class="description">Solutions for beginners computer scientists</p>
+
+        </div>
+
+        <div class="output-container">
+            <table id='comment-Table' class="commentTable">
+            </table>
+        </div>
+
+        <div class="input-form">
+            <h3 class="input-title">Send us a message :) </h3>
+
+            <div class="input-container">
+                <p style="background-color:#ededed;">Insert your name: </p>
+                <textarea class="generic-input" placeholder="Don't leave me empty!" id="name-input"
+                    onblur="checkNotEmpty(this)"></textarea>
+
+            </div>
+
+            <p class="warning" id="warning"
+                style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
+
+            <div class="input-container">
+                <p style="background-color:#ededed;">Insert your email: </p>
+                <textarea class="generic-input" placeholder="Don't leave me empty!" id="email-input"
+                    onblur="checkNotEmpty1(this)"></textarea>
+            </div>
+
+            <p class="warning" id="warning-1"
+                style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
+
+            <div class="large-message">
+                <h4 style="background-color:#ededed;">Insert your message here!</h4>
+                <textarea placeholder="Don't leave me empty!" id="message-input"
+                    onblur="checkNotEmpty2(this)"></textarea>
+            </div>
+
+            <p class="warning" id="warning-2"
+                style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
+            
+            <button id="submitBtn" onclick="saveComment()">Submit</button>
+            <br>
+            <div id="submit-container">
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+<footer>
+</footer>
+
+</html>
