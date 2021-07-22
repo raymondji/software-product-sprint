@@ -1,0 +1,31 @@
+{
+	"topics": [
+		{
+			"id": "css-flexbox",
+			"title": "CSS Flexbox",
+			"desc": "Make reactive, scalable web apps with this one simple element!"
+		},
+		{
+			"id": "machine-learning",
+			"title": "Machine Learning",
+			"desc": "Instead of solving the problem yourself, create an AI that can solve the problem for you!"
+		},
+		{
+			"id": "dev-ops",
+			"title": "DevOps/Automated Delivery",
+			"desc": "Automatically build, test, and deploy your code!"
+        },
+        {
+			"id": "ui-ux-design",
+			"title": "UI/UX Design",
+			"desc": "Maximise your product engagement by intentionally designing your user's exerience!"
+        },
+        {
+			"id": "cloud-tech",
+			"title": "Cloud Technology",
+            "desc": "Services like AWS and GCP allow for you to stan up servers and databases in a matter of minutes. Literally just download more ram!"
+            
+		}
+
+	]
+}
