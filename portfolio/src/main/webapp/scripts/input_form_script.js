@@ -8,7 +8,7 @@ async function saveComment() {
     const submitMessage = document.getElementById('submit-container');
     submitMessage.innerHTML = '';
 
-    if (name != '' || email != '' || message != '') {
+    if (name != '' && email != '' && message != '') {
         const params = new URLSearchParams();
         params.append('topic', getTopic());
         params.append('name-input', name);
