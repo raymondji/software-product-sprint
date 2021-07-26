@@ -87,6 +87,9 @@ async function loadTable() {
         );
     }
     else {
+        commentTable.appendChild(
+            createThElement()
+        );
         for (var i = 0; i < listComments.length; i++) {
             comment = listComments[i];
             commentTable.appendChild(
