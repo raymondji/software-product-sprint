@@ -41,17 +41,7 @@ public class CommentsUsers extends HttpServlet {
             
             feedback = new FeedBack(name, helpful);
             feedbackComments.add(feedback);
-           // break;
         }
-
-    while (results.hasNext()) {
-        Entity entity = results.next();
-        name = entity.getString("name");
-        helpful = entity.getString("helpful");
-
-        feedback = new FeedBack(name, helpful);
-        feedbackComments.add(feedback);
-    }
 
     Gson gson = new Gson();
     response.setContentType("application/json;");

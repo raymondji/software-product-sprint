@@ -4,33 +4,30 @@
     <meta charset="UTF-8">
     <title>FeedBack Page</title>
     <link rel="stylesheet" href="topic_style.css">
+    <script src="topic_javascript.js"></script>
   </head>
+
   <body onload = "showFeedTable()">
       <h1 class="center"> FeedBack Page</h1>
 
     <div class = "output-container">
-        <table id = 'comment-Table' class = "userTable"></table>
+        <table id = 'feedback-Table' class = "userTable"></table>
     </div>
+
     <div class="divFeedBack">
-    <form action="/feedBack-page" method="POST">
       <p class="white">Insert your name:</p>
       <br/>
-      <textarea name="name-input"></textarea>
+      <textarea id="name-input"></textarea>
       <br/>
-      <p class="warning" id="warning-1"
-        style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
       <p class="white">These topics were helpful? Why?</p>
       <br/>
-      <textarea name="helpful-input"></textarea>
+      <textarea id="helpful-input"></textarea>
       <br/>
-      <p class="warning" id="warning-2"
-         style="background-color:#ededed; color:red; text-align: left; padding-left:14px ; "></p>
 
       <button onclick="saveCommentUser()">Submit</button>
-      <br>
       <div id="submit-container"></div>
-    </form>
     </div>
+
     <a href="topic_page.html"><button class="buttonGoBackRight">Go back</button></a>
   </body>
 </html>
