@@ -26,7 +26,7 @@ table {
 
 .center {
   text-align: center;
-  color: black;
+  color: white;
   font-size: 200%;
 }
 
@@ -36,17 +36,17 @@ table {
 
 .centerText {
     text-align: center;
-    color: black;
-    font: black;
+    color: white;
+    font: white;
 }
 
-.black {
-    color: black;
+.white {
+    color: white;
     font-size: 200%
 }
 
 body {
-    background-color:  #C6E0FF;
+    background-color: #2B2D42;
 }
 
 .buttonGoBackRight {
@@ -105,3 +105,5 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+
