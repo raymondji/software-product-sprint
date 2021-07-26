@@ -7,7 +7,7 @@
 body{
     background-color:  #C6E0FF;
 }
-textarea { 
+textarea ,a{ 
     border: none; 
     background-color: transparent; 
     resize: none; 
