@@ -35,15 +35,7 @@ public final class FeedBackPage extends HttpServlet {
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("FeedBack");
 
-        Document doc = Document.newBuilder().setContent(helpful).setType(Document.Type.PLAIN_TEXT).build();
-        LanguageServiceClient languageService = LanguageServiceClient.create();
-        Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-        float score = sentiment.getScore();
-        languageService.close();
-
-        if (score > -0.1) {
             FullEntity messageEntity = Entity.newBuilder(keyFactory.newKey()).set("name", name).set("helpful", helpful).build();
             datastore.put(messageEntity);
-        }
     }
 }

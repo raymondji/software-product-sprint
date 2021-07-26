@@ -26,7 +26,7 @@ async function saveCommentUser() {
 
 async function showFeedTable() {
     const params = new URLSearchParams();
-    const responseFromServer = await fetch('/comment-user', {method: 'POST', body: params});
+    const responseFromServer = await fetch('/comment-user');
     const commentUser = await responseFromServer.json();
     const userTable = document.getElementById('feedback-Table');
     var comment;
@@ -43,7 +43,7 @@ async function showFeedTable() {
 }
 
 function noComments() {
-    const text = 'No comments on the feedback: ';
+    const text = 'No comments on the topic: ';
     const style = 'color: white; font-size: 80px; text-align:center;'
     return createParagraph(text, style);
 }
@@ -56,6 +56,13 @@ function createTrElement(comment) {
     trElement.appendChild(
         createTagElement('td', comment.helpful));
     return trElement;
+}
+
+function createThElement() {
+    const trElement = document.createElement('tr');
+    trElement.innerHTML = '';
+    trElement.appendChild(createTagElement('th', 'Name'));
+    trElement.appendChild(createTagElement('th', 'Helpful'));
 }
 
 function createTagElement(tag, text) {
